@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Guide Proposals</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'DM Sans',sans-serif;
+}
+
+body{
+background:#030712;
+color:white;
+display:flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+width:240px;
+height:100vh;
+background:linear-gradient(180deg,#020617,#0f172a);
+padding:25px;
+position:fixed;
+}
+
+.sidebar h2{
+font-family:'Syne';
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+color:#94a3b8;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.08);
+color:white;
+}
+
+/* MAIN */
+.main{
+margin-left:260px;
+padding:40px;
+width:100%;
+}
+
+h2{
+font-family:'Syne';
+margin-bottom:20px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:14px;
+text-align:left;
+}
+
+tr{
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+tr:hover{
+background:rgba(255,255,255,0.03);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>Guide Panel</h2>
+
+<a href="/guide_dashboard">Dashboard</a>
+<a href="/guide/proposals">View Proposals</a>
+<a href="/guide/feedback">Give Feedback</a>
+<a href="/logout">Logout</a>
+
+</div>
+
+<div class="main">
+
+<h2>Student Proposals</h2>
+
+<div class="card">
+
+<table>
+
+<tr>
+<th>Student</th>
+<th>Title</th>
+<th>Technology</th>
+<th>Status</th>
+</tr>
+
+{% for p in proposals %}
+<tr>
+<td>{{p.student_name}}</td>
+<td>{{p.title}}</td>
+<td>{{p.technology}}</td>
+<td>{{p.status}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>

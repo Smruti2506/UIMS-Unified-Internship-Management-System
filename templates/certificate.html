@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Certificate</title>
+
+<style>
+body{
+background:#030712;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+font-family:'DM Sans';
+color:white;
+}
+
+/* Certificate box */
+.certificate{
+background:white;
+color:black;
+padding:50px;
+width:700px;
+text-align:center;
+border-radius:12px;
+box-shadow:0 0 40px rgba(0,0,0,0.5);
+}
+
+h1{
+font-size:36px;
+margin-bottom:20px;
+}
+
+.name{
+font-size:28px;
+font-weight:bold;
+margin:20px 0;
+}
+
+.small{
+color:#555;
+margin-bottom:10px;
+}
+
+button{
+margin-top:20px;
+padding:10px 20px;
+border:none;
+background:#3b82f6;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="certificate">
+
+<h1>Certificate of Completion</h1>
+
+<p class="small">This is to certify that</p>
+
+<div class="name">{{name}}</div>
+
+<p class="small">
+has successfully completed the internship/project
+</p>
+
+<p><b>Project:</b> {{project}}</p>
+
+<p><b>Technology:</b> {{tech}}</p>
+
+<p><b>Status:</b> Completed</p>
+
+<button onclick="window.print()">Download / Print</button>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Assign Marks | Admin</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'DM Sans',sans-serif;
+}
+
+body{
+background:#030712;
+color:white;
+display:flex;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+width:240px;
+height:100vh;
+background:linear-gradient(180deg,#020617,#0f172a);
+padding:25px;
+position:fixed;
+}
+
+.sidebar h2{
+font-family:'Syne';
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+color:#94a3b8;
+text-decoration:none;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.08);
+color:white;
+transform:translateX(5px);
+}
+
+/* ===== MAIN ===== */
+.main{
+margin-left:260px;
+padding:40px;
+width:100%;
+}
+
+/* ===== CARD ===== */
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+padding:30px;
+border-radius:16px;
+backdrop-filter:blur(20px);
+max-width:500px;
+}
+
+/* ===== HEADING ===== */
+h2{
+font-family:'Syne';
+margin-bottom:20px;
+}
+
+/* ===== INPUT ===== */
+.input-group{
+margin-bottom:18px;
+}
+
+label{
+font-size:13px;
+color:#94a3b8;
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+margin-top:6px;
+border:none;
+border-radius:10px;
+background:rgba(255,255,255,0.08);
+color:white;
+}
+
+input:focus,textarea:focus{
+outline:none;
+box-shadow:0 0 12px #06d6a0;
+}
+
+/* ===== BUTTON ===== */
+button{
+width:100%;
+padding:14px;
+background:linear-gradient(135deg,#06d6a0,#3b82f6);
+border:none;
+border-radius:10px;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 0 20px rgba(6,214,160,0.5);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>UIMS Admin</h2>
+
+<a href="/admin_dashboard">Dashboard</a>
+<a href="/admin/proposals">Manage Proposals</a>
+<a href="/admin/marks">Assign Marks</a>
+<a href="/logout">Logout</a>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="card">
+
+<h2>Assign Marks & Feedback</h2>
+
+<form method="POST">
+
+<div class="input-group">
+<label>Student Name</label>
+<input type="text" name="student_name" placeholder="Enter student name" required>
+</div>
+
+<div class="input-group">
+<label>Marks</label>
+<input type="number" name="marks" placeholder="Enter marks" required>
+</div>
+
+<div class="input-group">
+<label>Feedback</label>
+<textarea name="feedback" placeholder="Write feedback..." required></textarea>
+</div>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>

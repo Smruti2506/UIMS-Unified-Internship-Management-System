@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>UIMS - Home</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+/* ===== GLOBAL STYLING ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'DM Sans',sans-serif;
+}
+
+/* Dark theme SAME as login/register */
+body{
+background:#030712;
+color:white;
+overflow-x:hidden;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+position:sticky;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 60px;
+
+/* glass effect */
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+/* Logo styling */
+.logo{
+font-family:'Syne';
+font-weight:800;
+font-size:22px;
+
+/* gradient text */
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* Navigation links */
+.nav-links a{
+text-decoration:none;
+color:#94a3b8;
+margin-left:20px;
+transition:0.3s;
+}
+
+/* hover effect */
+.nav-links a:hover{
+color:white;
+}
+
+/* ===== HERO SECTION ===== */
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+}
+
+/* glowing background (same as login) */
+.hero::before{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background:#06d6a0;
+filter:blur(140px);
+opacity:0.15;
+top:-100px;
+left:-100px;
+}
+
+/* Title */
+.hero h1{
+font-size:52px;
+font-family:'Syne';
+margin-bottom:20px;
+
+/* gradient text */
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* Description */
+.hero p{
+max-width:700px;
+color:#94a3b8;
+line-height:1.6;
+}
+
+/* Buttons */
+.hero-buttons{
+margin-top:30px;
+}
+
+.hero-buttons a{
+text-decoration:none;
+padding:14px 28px;
+border-radius:10px;
+margin:10px;
+transition:0.3s;
+}
+
+/* Login button */
+.btn-login{
+background:rgba(255,255,255,0.08);
+color:white;
+}
+
+/* Register button */
+.btn-register{
+background:linear-gradient(135deg,#06d6a0,#3b82f6);
+color:white;
+}
+
+/* hover animation */
+.hero-buttons a:hover{
+transform:translateY(-3px);
+box-shadow:0 0 20px rgba(6,214,160,0.4);
+}
+
+/* ===== CARDS ===== */
+section{
+padding:80px 60px;
+text-align:center;
+}
+
+h2{
+margin-bottom:40px;
+font-family:'Syne';
+}
+
+/* role grid */
+.roles{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+/* glass card */
+.role-card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+transition:0.3s;
+}
+
+/* hover effect */
+.role-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(6,214,160,0.2);
+}
+
+/* ===== ANALYTICS ===== */
+.analytics{
+background:#020617;
+}
+
+/* ===== FOOTER ===== */
+footer{
+background:#020617;
+padding:40px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+footer a{
+color:#94a3b8;
+text-decoration:none;
+}
+
+footer a:hover{
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<div class="navbar">
+<div class="logo">🎓 UIMS</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Features</a>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+</div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+
+<h1>Unified Internship & Live Project Management System</h1>
+
+<p>
+A centralized platform to manage internships, projects and student performance efficiently.
+</p>
+
+<div class="hero-buttons">
+<a href="/login" class="btn-login">Login</a>
+<a href="/register" class="btn-register">Register</a>
+</div>
+
+</section>
+
+<!-- ===== ROLES ===== -->
+<section>
+
+<h2>System Modules</h2>
+
+<div class="roles">
+
+<div class="role-card">
+<h3>Students</h3>
+<p>Submit proposals & track progress</p>
+</div>
+
+<div class="role-card">
+<h3>Guides</h3>
+<p>Review & evaluate students</p>
+</div>
+
+<div class="role-card">
+<h3>Companies</h3>
+<p>Approve internship requests</p>
+</div>
+
+<div class="role-card">
+<h3>Admin</h3>
+<p>Manage complete system</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== ANALYTICS ===== -->
+<section class="analytics">
+<h2>System Analytics</h2>
+<canvas id="chart"></canvas>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h3>About</h3>
+<p>Unified internship management platform</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+</div>
+
+</div>
+
+<p style="text-align:center;margin-top:20px;">
+© 2026 UIMS | MCA Project
+</p>
+
+</footer>
+
+<!-- ===== CHART SCRIPT ===== -->
+<script>
+const ctx=document.getElementById('chart');
+
+new Chart(ctx,{
+type:'bar',
+data:{
+labels:['Students','Projects','Guides','Companies'],
+datasets:[{
+data:[120,85,15,10],
+backgroundColor:['#06d6a0','#3b82f6','#60a5fa','#93c5fd']
+}]
+},
+options:{plugins:{legend:{display:false}}}
+});
+</script>
+
+</body>
+</html>

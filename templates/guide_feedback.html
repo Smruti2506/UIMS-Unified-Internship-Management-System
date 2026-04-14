@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Guide Feedback | UIMS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans';}
+body{background:#030712;color:white;display:flex;}
+
+.sidebar{
+width:240px;height:100vh;
+background:linear-gradient(180deg,#020617,#0f172a);
+padding:25px;position:fixed;
+}
+
+.sidebar h2{
+font-family:'Syne';
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;padding:12px;margin-bottom:10px;
+border-radius:10px;color:#94a3b8;text-decoration:none;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.08);
+color:white;
+}
+
+.main{
+margin-left:260px;padding:40px;width:100%;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;border-radius:16px;
+border:1px solid rgba(255,255,255,0.08);
+max-width:500px;
+}
+
+h2{font-family:'Syne';margin-bottom:20px;}
+
+input,textarea{
+width:100%;padding:12px;margin:10px 0;
+border:none;border-radius:10px;
+background:rgba(255,255,255,0.08);color:white;
+}
+
+button{
+width:100%;padding:12px;
+background:linear-gradient(135deg,#06d6a0,#3b82f6);
+border:none;border-radius:10px;color:white;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>Guide Panel</h2>
+<a href="/guide_dashboard">Dashboard</a>
+<a href="/guide/proposals">Proposals</a>
+<a href="/guide/feedback">Give Feedback</a>
+<a href="/logout">Logout</a>
+</div>
+
+<div class="main">
+
+<div class="card">
+<h2>Give Feedback</h2>
+
+<form method="POST">
+
+<input type="text" name="student_name" placeholder="Student Name" required>
+
+<input type="number" name="marks" placeholder="Marks" required>
+
+<textarea name="feedback" placeholder="Write feedback..." required></textarea>
+
+<button type="submit">Submit Feedback</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>

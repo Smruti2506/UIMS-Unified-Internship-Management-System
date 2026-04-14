@@ -1,0 +1,446 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Proposal Status | UIMS</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f1f5f9;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            height: 60px;
+            background: #1E293B;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        /* LOGOUT */
+
+        .logout {
+            color: white;
+            text-decoration: none;
+            background: #EF4444;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .logout:hover {
+            background: #dc2626;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 220px;
+            height: 100%;
+            background: #1E293B;
+            padding-top: 20px;
+            transition: 0.3s;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #2563EB;
+        }
+
+        /* MAIN */
+
+        .main {
+            margin-left: 220px;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        /* TABLE CARD */
+
+        .table-card {
+
+            background: white;
+
+            width: 100%;
+            max-width: 900px;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+
+        }
+
+        /* TABLE */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background: #2563EB;
+            color: white;
+        }
+
+        /* STATUS COLORS */
+
+        .status-pending {
+            color: #f59e0b;
+            font-weight: 500;
+        }
+
+        .status-approved {
+            color: #22c55e;
+            font-weight: 500;
+        }
+
+        .status-rejected {
+            color: #ef4444;
+            font-weight: 500;
+        }
+
+        /* ROW HOVER */
+
+        tr:hover {
+            background: #f8fafc;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <div class="logo" onclick="toggleSidebar()">
+            🎓 UIMS – Proposal Status
+        </div>
+
+        <a href="/login" class="logout">🚪 Logout</a>
+
+    </div>
+
+
+    <div class="sidebar">
+
+        <a href="/student_dashboard">📊 Dashboard</a>
+        <a href="/submit_proposal">📄 Submit Proposal</a>
+        <a href="/weekly_progress">📈 Weekly Progress</a>
+        <a href="/view_status">📑 Proposal Status</a>
+        <a href="/view_feedback">⭐ Marks & Feedback</a>
+
+    </div>
+
+
+    <div class="main">
+
+        <div class="table-card">
+
+            <h2>📑 Proposal Status</h2>
+
+            <table>
+
+                <tr>
+                    <th>Student Name</th>
+                    <th>Project Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                </tr>
+
+                {% for proposal in proposals %}
+
+                <tr>
+
+                    <td>{{proposal.student_name}}</td>
+
+                    <td>{{proposal.project_title}}</td>
+
+                    <td>{{proposal.description}}</td>
+
+                    <td>
+
+                        {% if proposal.status == "Pending" %}
+                        <span class="status-pending">Pending</span>
+
+                        {% elif proposal.status == "Approved" %}
+                        <span class="status-approved">Approved</span>
+
+                        {% elif proposal.status == "Rejected" %}
+                        <span class="status-rejected">Rejected</span>
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function toggleSidebar() {
+
+            const sidebar = document.querySelector(".sidebar")
+            const main = document.querySelector(".main")
+
+            if (sidebar.style.left === "-220px") {
+
+                sidebar.style.left = "0"
+                main.style.marginLeft = "220px"
+
+            } else {
+
+                sidebar.style.left = "-220px"
+                main.style.marginLeft = "0"
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Proposal Status | UIMS</title>
+
+<!-- SAME FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'DM Sans',sans-serif;
+}
+
+body{
+background:#030712;
+color:white;
+display:flex;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+width:240px;
+height:100vh;
+background:linear-gradient(180deg,#020617,#0f172a);
+padding:25px;
+position:fixed;
+}
+
+.sidebar h2{
+font-family:'Syne';
+font-weight:800;
+margin-bottom:30px;
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+color:#94a3b8;
+text-decoration:none;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.08);
+color:white;
+transform:translateX(5px);
+}
+
+/* ===== MAIN ===== */
+.main{
+margin-left:260px;
+padding:40px;
+width:100%;
+}
+
+h2{
+font-family:'Syne';
+margin-bottom:20px;
+}
+
+/* ===== CARD ===== */
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+padding:25px;
+border-radius:16px;
+backdrop-filter:blur(20px);
+}
+
+/* ===== TABLE ===== */
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+text-align:left;
+padding:14px;
+color:#94a3b8;
+font-weight:500;
+}
+
+td{
+padding:14px;
+}
+
+/* row hover */
+tr{
+border-bottom:1px solid rgba(255,255,255,0.05);
+transition:0.3s;
+}
+
+tr:hover{
+background:rgba(255,255,255,0.03);
+}
+
+/* ===== STATUS BADGES ===== */
+.status{
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:500;
+}
+
+/* colors */
+.pending{
+background:rgba(255,165,0,0.15);
+color:orange;
+}
+
+.approved{
+background:rgba(34,197,94,0.15);
+color:#22c55e;
+}
+
+.rejected{
+background:rgba(239,68,68,0.15);
+color:#ef4444;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>UIMS</h2>
+
+<a href="/student_dashboard">Dashboard</a>
+<a href="/submit_proposal">Submit Proposal</a>
+<a href="/weekly_progress">Weekly Progress</a>
+<a href="/view_status">Proposal Status</a>
+<a href="/view_feedback">Feedback</a>
+<a href="/logout">Logout</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<h2>Proposal Status</h2>
+
+<div class="card">
+
+<table>
+
+<tr>
+<th>Title</th>
+<th>Guide</th>
+<th>Date</th>
+<th>Status</th>
+</tr>
+
+{% for p in proposals %}
+<tr>
+<td>{{ p.title }}</td>
+<td>{{ p.guide }}</td>
+<td>{{ p.date }}</td>
+<td>
+<span class="status {{ p.status }}">
+{{ p.status }}
+</span>
+</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>

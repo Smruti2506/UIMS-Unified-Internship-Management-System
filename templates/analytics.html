@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Analytics | UIMS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+background:#030712;
+color:white;
+font-family:'DM Sans';
+padding:40px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:16px;
+text-align:center;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.card h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#94a3b8;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>System Analytics</h1>
+
+<div class="grid">
+
+<div class="card">
+<h2>{{students}}</h2>
+<p>Total Students</p>
+</div>
+
+<div class="card">
+<h2>{{proposals}}</h2>
+<p>Total Proposals</p>
+</div>
+
+<div class="card">
+<h2>{{approved}}</h2>
+<p>Approved Projects</p>
+</div>
+
+<div class="card">
+<h2>{{rejected}}</h2>
+<p>Rejected Projects</p>
+</div>
+
+</div>
+
+</body>
+</html>

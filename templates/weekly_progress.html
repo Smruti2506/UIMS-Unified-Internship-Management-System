@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Weekly Progress | UIMS</title>
+
+<!-- ✅ CHANGED FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+body{
+margin:0;
+/* ✅ UPDATED FONT */
+font-family:'DM Sans',sans-serif;
+background:#030712;
+color:white;
+display:flex;
+}
+
+/* ===== SIDEBAR (UPDATED) ===== */
+.sidebar{
+position:fixed;
+width:250px;
+height:100%;
+background:linear-gradient(180deg,#020617,#0f172a);
+padding:20px;
+}
+
+.sidebar h2{
+font-family:'Syne';
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.sidebar a{
+display:block;
+margin:10px 0;
+padding:10px;
+color:#94a3b8;
+text-decoration:none;
+border-radius:10px;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.08);
+color:white;
+transform:translateX(5px);
+}
+
+/* ===== MAIN ===== */
+.main{
+margin-left:250px;
+padding:30px;
+}
+
+/* ===== HEADER ===== */
+h1{
+font-family:'Syne';
+margin-bottom:20px;
+}
+
+/* ===== PROGRESS ===== */
+.progress-bar{
+height:10px;
+background:#1e293b;
+border-radius:10px;
+overflow:hidden;
+margin-bottom:10px;
+}
+
+.progress-fill{
+height:100%;
+/* ✅ UPDATED COLOR */
+background:linear-gradient(90deg,#06d6a0,#3b82f6);
+width:{{progress}}%;
+}
+
+.progress-text{
+margin-bottom:30px;
+color:#94a3b8;
+}
+
+/* ===== TIMELINE ===== */
+.timeline{
+border-left:3px solid #06d6a0;
+padding-left:20px;
+}
+
+.item{
+margin-bottom:20px;
+position:relative;
+}
+
+.item::before{
+content:"";
+width:14px;
+height:14px;
+background:#06d6a0;
+border-radius:50%;
+position:absolute;
+left:-28px;
+top:5px;
+}
+
+/* ===== CARD (GLASS) ===== */
+.card{
+background:rgba(255,255,255,0.05);
+padding:15px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+box-shadow:0 0 20px rgba(6,214,160,0.3);
+}
+
+/* ===== FORM ===== */
+.form{
+margin-top:40px;
+max-width:400px;
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:none;
+background:rgba(255,255,255,0.08);
+color:white;
+}
+
+input:focus,textarea:focus{
+outline:none;
+box-shadow:0 0 12px #06d6a0;
+}
+
+button{
+width:100%;
+padding:12px;
+background:linear-gradient(135deg,#06d6a0,#3b82f6);
+border:none;
+border-radius:10px;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 0 20px rgba(6,214,160,0.5);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>UIMS</h2>
+
+<a href="/student_dashboard">Dashboard</a>
+<a href="/submit_proposal">Submit Proposal</a>
+<a href="/weekly_progress" style="background:rgba(255,255,255,0.08);color:white;">Weekly Progress</a>
+<a href="/view_status">Proposal Status</a>
+<a href="/view_feedback">Feedback</a>
+</div>
+
+<div class="main">
+
+<h1>Weekly Progress</h1>
+
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+
+<div class="progress-text">
+Progress: {{progress}}%
+</div>
+
+<div class="timeline">
+{% for p in progress_data %}
+<div class="item">
+<div class="card">
+<h3>Week {{p.week_no}}</h3>
+<p>{{p.progress}}</p>
+</div>
+</div>
+{% endfor %}
+</div>
+
+<div class="form">
+<form method="POST">
+
+<input type="number" name="week_no" placeholder="Week No" required>
+<textarea name="progress" placeholder="What did you do?" required></textarea>
+
+<button type="submit">Submit Progress</button>
+
+</form>
+</div>
+
+</div>
+
+</body>
+</html>

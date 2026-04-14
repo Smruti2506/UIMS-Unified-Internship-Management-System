@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Submit Proposal | UIMS</title>
+
+<!-- SAME FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'DM Sans',sans-serif;
+}
+
+body{
+background:#030712;
+color:white;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+position:fixed;
+width:240px;
+height:100%;
+background:linear-gradient(180deg,#020617,#0f172a);
+padding:25px;
+}
+
+.logo{
+font-family:'Syne';
+font-size:22px;
+font-weight:800;
+margin-bottom:30px;
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+color:#94a3b8;
+text-decoration:none;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.08);
+color:white;
+transform:translateX(5px);
+}
+
+/* ===== MAIN ===== */
+.main{
+margin-left:260px;
+padding:40px;
+display:flex;
+gap:25px;
+}
+
+/* ===== CARD ===== */
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:16px;
+backdrop-filter:blur(20px);
+padding:25px;
+}
+
+/* FORM CARD */
+.form-card{
+flex:2;
+}
+
+/* SIDE PANEL */
+.side-panel{
+flex:1;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+/* HEADINGS */
+h2,h3{
+font-family:'Syne';
+margin-bottom:15px;
+}
+
+/* INPUT */
+.input-group{
+margin-bottom:16px;
+}
+
+label{
+font-size:13px;
+color:#94a3b8;
+}
+
+input,textarea,select{
+width:100%;
+padding:12px;
+margin-top:6px;
+border:none;
+border-radius:10px;
+background:rgba(255,255,255,0.08);
+color:white;
+}
+
+input:focus,textarea:focus{
+outline:none;
+box-shadow:0 0 12px #06d6a0;
+}
+
+/* FILE */
+.file-input{
+border:1px dashed #06d6a0;
+}
+
+/* BUTTON */
+button{
+width:100%;
+padding:14px;
+background:linear-gradient(135deg,#06d6a0,#3b82f6);
+border:none;
+border-radius:10px;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 0 20px rgba(6,214,160,0.5);
+}
+
+/* STEPS */
+.step{
+margin-bottom:10px;
+color:#94a3b8;
+}
+
+.step.active{
+color:#06d6a0;
+font-weight:600;
+}
+
+/* TIPS */
+.tips p{
+font-size:14px;
+color:#94a3b8;
+margin-bottom:8px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.main{
+flex-direction:column;
+margin-left:200px;
+}
+.sidebar{
+width:200px;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<div class="logo">UIMS</div>
+
+<a href="/student_dashboard">Dashboard</a>
+<a href="/submit_proposal">Submit Proposal</a>
+<a href="/weekly_progress">Weekly Progress</a>
+<a href="/view_status">Proposal Status</a>
+<a href="/view_feedback">Feedback</a>
+<a href="/logout">Logout</a>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- FORM -->
+<div class="card form-card">
+
+<h2>Submit Proposal</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<div class="input-group">
+<label>Project Title</label>
+<input type="text" name="title" required>
+</div>
+
+<div class="input-group">
+<label>Technology</label>
+<input type="text" name="technology" required>
+</div>
+
+<div class="input-group">
+<label>Description</label>
+<textarea name="description" required></textarea>
+</div>
+
+<div class="input-group">
+<label>Company</label>
+<input type="text" name="company">
+</div>
+
+<div class="input-group">
+<label>Guide</label>
+<input type="text" name="guide">
+</div>
+
+<div class="input-group">
+<label>Upload File</label>
+<input class="file-input" type="file" name="proposal_file">
+</div>
+
+<button type="submit">Submit Proposal</button>
+
+</form>
+
+</div>
+
+<!-- SIDE PANEL -->
+<div class="side-panel">
+
+<div class="card">
+<h3>Submission Steps</h3>
+<div class="step active">1. Fill Details</div>
+<div class="step">2. Upload File</div>
+<div class="step">3. Guide Review</div>
+<div class="step">4. Approval</div>
+</div>
+
+<div class="card tips">
+<h3>Tips</h3>
+<p>✔ Keep title clear</p>
+<p>✔ Explain problem properly</p>
+<p>✔ Use correct tech stack</p>
+<p>✔ Upload proper PDF</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Company Dashboard | UIMS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'DM Sans',sans-serif;
+}
+
+body{
+background:#030712;
+color:white;
+display:flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+width:240px;
+height:100vh;
+background:linear-gradient(180deg,#020617,#0f172a);
+padding:25px;
+position:fixed;
+}
+
+.sidebar h2{
+font-family:'Syne';
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+color:#94a3b8;
+text-decoration:none;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.08);
+color:white;
+transform:translateX(5px);
+}
+
+/* MAIN */
+.main{
+margin-left:260px;
+padding:40px;
+width:100%;
+}
+
+h1{
+font-family:'Syne';
+margin-bottom:30px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+padding:25px;
+border-radius:16px;
+text-align:center;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(6,214,160,0.3);
+}
+
+.card h3{
+font-family:'Syne';
+margin-bottom:10px;
+}
+
+.card p{
+color:#94a3b8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>Company Panel</h2>
+
+<a href="/company_dashboard">Dashboard</a>
+<a href="/company/requests">View Requests</a>
+<a href="/logout">Logout</a>
+
+</div>
+
+<div class="main">
+
+<h1>Company Dashboard</h1>
+
+<div class="grid">
+
+<div class="card" onclick="location.href='/company/requests'">
+<h3>Internship Requests</h3>
+<p>View student applications</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

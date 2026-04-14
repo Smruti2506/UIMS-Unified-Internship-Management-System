@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Student Dashboard | UIMS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'DM Sans',sans-serif;
+}
+
+body{
+background:#030712;
+color:white;
+display:flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+width:240px;
+height:100vh;
+background:linear-gradient(180deg,#020617,#0f172a);
+padding:25px;
+position:fixed;
+}
+
+.sidebar h2{
+font-family:'Syne';
+font-weight:800;
+margin-bottom:30px;
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+color:#94a3b8;
+text-decoration:none;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.08);
+color:white;
+transform:translateX(5px);
+}
+
+/* MAIN */
+.main{
+margin-left:260px;
+padding:40px;
+width:100%;
+}
+
+/* HEADER */
+h1{
+font-family:'Syne';
+margin-bottom:25px;
+}
+
+/* CARDS GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+padding:25px;
+border-radius:16px;
+backdrop-filter:blur(20px);
+transition:0.3s;
+text-align:center;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(6,214,160,0.3);
+}
+
+/* CARD TITLE */
+.card h3{
+font-family:'Syne';
+margin-bottom:10px;
+}
+
+/* CARD TEXT */
+.card p{
+color:#94a3b8;
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>UIMS</h2>
+
+<a href="/student_dashboard">Dashboard</a>
+<a href="/submit_proposal">Submit Proposal</a>
+<a href="/weekly_progress">Weekly Progress</a>
+<a href="/view_status">Proposal Status</a>
+<a href="/view_feedback">Feedback</a>
+<a href="/logout">Logout</a>
+<a href="/certificate">
+<button style="padding:12px;border:none;border-radius:10px;background:#06d6a0;color:white;">
+Download Certificate
+</button>
+</a>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<h1>Student Dashboard</h1>
+
+<div class="grid">
+
+<div class="card" onclick="location.href='/submit_proposal'">
+<h3>Submit Proposal</h3>
+<p>Create and submit your project proposal</p>
+</div>
+
+<div class="card" onclick="location.href='/weekly_progress'">
+<h3>Weekly Progress</h3>
+<p>Update your weekly work</p>
+</div>
+
+<div class="card" onclick="location.href='/view_status'">
+<h3>Proposal Status</h3>
+<p>Check approval status</p>
+</div>
+
+<div class="card" onclick="location.href='/view_feedback'">
+<h3>Marks & Feedback</h3>
+<p>View evaluation details</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Marks & Feedback | UIMS</title>
+
+<!-- SAME FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'DM Sans',sans-serif;
+}
+
+body{
+background:#030712;
+color:white;
+display:flex;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+width:240px;
+height:100vh;
+background:linear-gradient(180deg,#020617,#0f172a);
+padding:25px;
+position:fixed;
+}
+
+.sidebar h2{
+font-family:'Syne';
+font-weight:800;
+margin-bottom:30px;
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+color:#94a3b8;
+text-decoration:none;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.08);
+color:white;
+transform:translateX(5px);
+}
+
+/* ===== MAIN ===== */
+.main{
+margin-left:260px;
+padding:40px;
+width:100%;
+}
+
+/* ===== CARD ===== */
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+padding:25px;
+border-radius:16px;
+backdrop-filter:blur(20px);
+}
+
+/* ===== HEADER ===== */
+h2{
+font-family:'Syne';
+margin-bottom:20px;
+}
+
+/* ===== TABLE ===== */
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+text-align:left;
+padding:14px;
+color:#94a3b8;
+font-weight:500;
+}
+
+td{
+padding:14px;
+}
+
+/* row style */
+tr{
+border-bottom:1px solid rgba(255,255,255,0.05);
+transition:0.3s;
+}
+
+tr:hover{
+background:rgba(255,255,255,0.03);
+}
+
+/* MARKS STYLE */
+.marks{
+font-weight:600;
+color:#06d6a0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>UIMS</h2>
+
+<a href="/student_dashboard">Dashboard</a>
+<a href="/submit_proposal">Submit Proposal</a>
+<a href="/weekly_progress">Weekly Progress</a>
+<a href="/view_status">Proposal Status</a>
+<a href="/view_feedback">Marks & Feedback</a>
+<a href="/logout">Logout</a>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="card">
+
+<h2>Marks & Feedback</h2>
+
+<table>
+
+<tr>
+<th>Student</th>
+<th>Marks</th>
+<th>Feedback</th>
+</tr>
+
+{% for row in feedback %}
+<tr>
+<td>{{row.student_name}}</td>
+<td class="marks">{{row.marks}}</td>
+<td>{{row.feedback}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>

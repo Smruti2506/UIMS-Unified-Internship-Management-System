@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Manage Proposals | Admin</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'DM Sans',sans-serif;
+}
+
+body{
+background:#030712;
+color:white;
+display:flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+width:240px;
+height:100vh;
+background:linear-gradient(180deg,#020617,#0f172a);
+padding:25px;
+position:fixed;
+}
+
+.sidebar h2{
+font-family:'Syne';
+background:linear-gradient(90deg,#00f5ff,#06d6a0);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+margin-bottom:10px;
+border-radius:10px;
+color:#94a3b8;
+text-decoration:none;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,0.08);
+color:white;
+transform:translateX(5px);
+}
+
+/* MAIN */
+.main{
+margin-left:260px;
+padding:40px;
+width:100%;
+}
+
+h2{
+font-family:'Syne';
+margin-bottom:20px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+padding:25px;
+border-radius:16px;
+backdrop-filter:blur(20px);
+}
+
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+text-align:left;
+padding:14px;
+color:#94a3b8;
+}
+
+td{
+padding:14px;
+}
+
+/* ROW */
+tr{
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+tr:hover{
+background:rgba(255,255,255,0.03);
+}
+
+/* BUTTONS */
+.btn{
+padding:6px 12px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin-right:5px;
+transition:0.3s;
+}
+
+/* APPROVE */
+.approve{
+background:#22c55e;
+color:white;
+}
+
+.approve:hover{
+box-shadow:0 0 10px #22c55e;
+}
+
+/* REJECT */
+.reject{
+background:#ef4444;
+color:white;
+}
+
+.reject:hover{
+box-shadow:0 0 10px #ef4444;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>UIMS Admin</h2>
+
+<a href="/admin_dashboard">Dashboard</a>
+<a href="/admin/proposals">Manage Proposals</a>
+<a href="/admin/marks">Assign Marks</a>
+<a href="/logout">Logout</a>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<h2>Manage Proposals</h2>
+
+<div class="card">
+
+<table>
+
+<tr>
+<th>Student</th>
+<th>Title</th>
+<th>Technology</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+{% for p in proposals %}
+<tr>
+
+<td>{{p.student_name}}</td>
+<td>{{p.title}}</td>
+<td>{{p.technology}}</td>
+<td>{{p.status}}</td>
+
+<td>
+
+<a href="/approve/{{p.id}}">
+<button class="btn approve">Approve</button>
+</a>
+
+<a href="/reject/{{p.id}}">
+<button class="btn reject">Reject</button>
+</a>
+
+</td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>
